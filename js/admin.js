@@ -503,7 +503,8 @@
       if (info.permissions && !info.permissions.push) {
         throw new Error("Токенът може само да чете. Създайте нов с право Contents: Read and write.");
       }
-      cfg.branch = cfg.branch || info.default_branch || "main";
+      // Сайтът се публикува от main, затова записваме там (освен ако не е зададен друг клон)
+      cfg.branch = cfg.branch || "main";
       save(TOKEN_KEY, token);
       save(REPO_KEY, JSON.stringify({ owner: cfg.owner, repo: cfg.repo, branch: cfg.branch }));
       $("token").value = "";
