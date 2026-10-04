@@ -1,0 +1,61 @@
+# Всяка седмица изтегля списъка с офисите на Еконт в data/econt-offices.json.
+# Сайтът го ползва за търсачката „Офис“ при поръчка. Може да се пусне и на ръка:
+# Actions → „Офиси на Еконт“ → Run workflow.
+name: Офиси на Еконт
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: econt-offices
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Изтегляне от Еконт
+        run: |
+          curl -sSf --retry 3 -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"countryCode":"BGR"}' \
+            https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getOffices.json \
+            -o raw.json
+          jq '[.offices[]
+                | select((.address.city.country.code3 // "BGR") == "BGR")
+                | {
+                    code: .code,
+                    name: .name,
+                    city: .address.city.name,
+                    address: (.address.fullAddress // .address.street // ""),
+                    aps: (.isAPS // false)
+                  }
+                | select(.city != null and .city != "")]
+              | sort_by(.city, .name)' raw.json > data/econt-offices.json
+          rm raw.json
+          COUNT=$(jq length data/econt-offices.json)
+          echo "Офиси: $COUNT"
+          # Защита: не записваме празен или очевидно непълен списък
+          test "$COUNT" -gt 300
+
+      - name: Запис в хранилището
+        run: |
+          if git diff --quiet -- data/econt-offices.json; then
+            echo "Няма промени."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/econt-offices.json
+          git commit -m "Обновен списък с офисите на Еконт"
+          git pull --rebase origin main
+          git push origin HEAD:main

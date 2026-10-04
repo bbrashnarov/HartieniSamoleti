@@ -146,22 +146,83 @@
       });
   }
 
-  // Падащ списък с градовете (js/cities.js), подреден по азбучен ред
-  function fillCities() {
-    var list = (window.BG_CITIES || []).slice().sort(function (a, b) { return a.localeCompare(b, "bg"); });
-    document.getElementById("city-list").innerHTML = list.map(function (c) {
-      return '<option value="' + App.escapeHtml(c) + '"></option>';
-    }).join("");
+  // ---------- Град и офис ----------
+  // Офисите на Еконт идват от data/econt-offices.json, който се обновява всяка седмица
+  // от GitHub Action (.github/workflows/econt-offices.yml). За Спиди няма публичен
+  // списък без договор, затова там офисът се пише на ръка.
+  var econtOffices = [];
+
+  function norm(s) { return String(s || "").toLowerCase().replace(/\s+/g, " ").trim(); }
+
+  function current(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+
+  function officeLabel(o) {
+    return o.name + (o.aps ? " (" + App.t("checkout.aps") + ")" : "") + (o.address ? " – " + o.address : "");
+  }
+
+  function options(list) {
+    return list.map(function (v) { return '<option value="' + App.escapeHtml(v) + '"></option>'; }).join("");
+  }
+
+  function useEcontList() {
+    return current("courier") === "Еконт" && current("deliveryTo") === "office" && econtOffices.length > 0;
+  }
+
+  function updateLists() {
+    var econt = useEcontList();
+    var cities;
+    if (econt) {
+      var seen = {};
+      cities = [];
+      econtOffices.forEach(function (o) { if (!seen[o.city]) { seen[o.city] = true; cities.push(o.city); } });
+    } else {
+      cities = (window.BG_CITIES || []).slice();
+    }
+    cities.sort(function (a, b) { return a.localeCompare(b, "bg"); });
+    document.getElementById("city-list").innerHTML = options(cities);
+
+    var place = document.getElementById("f-place");
+    var hint = document.getElementById("place-hint");
+    if (econt) {
+      var city = norm(document.getElementById("f-city").value);
+      var inCity = city ? econtOffices.filter(function (o) { return norm(o.city) === city; }) : [];
+      document.getElementById("office-list").innerHTML = options(inCity.map(officeLabel));
+      place.setAttribute("list", "office-list");
+      hint.textContent = App.t(inCity.length ? "checkout.officeHintEcont" : "checkout.officeHintCityFirst");
+      hint.hidden = false;
+    } else {
+      place.removeAttribute("list");
+      hint.textContent = current("deliveryTo") === "office" ? App.t("checkout.officeHintFree") : "";
+      hint.hidden = !hint.textContent;
+    }
+  }
+
+  function loadEcontOffices() {
+    fetch("data/econt-offices.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (list) {
+        econtOffices = Array.isArray(list) ? list.filter(function (o) { return o && o.city && o.name; }) : [];
+        updateLists();
+      })
+      .catch(function () { econtOffices = []; });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    fillCities();
     var form = document.getElementById("order-form");
     form.addEventListener("submit", onSubmit);
-    form.querySelectorAll('input[name="deliveryTo"]').forEach(function (r) {
-      r.addEventListener("change", updatePlaceLabel);
+    form.querySelectorAll('input[name="deliveryTo"], input[name="courier"]').forEach(function (r) {
+      r.addEventListener("change", function () {
+        updatePlaceLabel();
+        updateLists();
+      });
     });
+    document.getElementById("f-city").addEventListener("input", updateLists);
+    updateLists();
+    loadEcontOffices();
   });
 
-  App.onReady(renderSummary);
+  App.onReady(function () { renderSummary(); updateLists(); });
 })();

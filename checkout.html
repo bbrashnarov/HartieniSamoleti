@@ -63,7 +63,9 @@
             </div>
             <div class="field">
               <label for="f-place"><span id="place-label" data-i18n="checkout.office"></span> <span class="req">*</span></label>
-              <input id="f-place" name="place" required maxlength="200">
+              <input id="f-place" name="place" required maxlength="250" autocomplete="off">
+              <datalist id="office-list"></datalist>
+              <small class="muted" id="place-hint" hidden></small>
             </div>
             <div class="field">
               <label for="f-note" data-i18n="checkout.note"></label>
