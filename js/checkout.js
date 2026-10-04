@@ -146,7 +146,16 @@
       });
   }
 
+  // Падащ списък с градовете (js/cities.js), подреден по азбучен ред
+  function fillCities() {
+    var list = (window.BG_CITIES || []).slice().sort(function (a, b) { return a.localeCompare(b, "bg"); });
+    document.getElementById("city-list").innerHTML = list.map(function (c) {
+      return '<option value="' + App.escapeHtml(c) + '"></option>';
+    }).join("");
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    fillCities();
     var form = document.getElementById("order-form");
     form.addEventListener("submit", onSubmit);
     form.querySelectorAll('input[name="deliveryTo"]').forEach(function (r) {

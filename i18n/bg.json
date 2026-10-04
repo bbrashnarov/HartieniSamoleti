@@ -70,6 +70,8 @@
   "checkout.toOffice": "Офис на куриера",
   "checkout.toAddress": "Адрес",
   "checkout.city": "Град",
+  "checkout.cityPlaceholder": "Започни да пишеш, напр. Пловдив",
+  "checkout.cityHint": "Избери от списъка с градове. Ако мястото ти го няма (например село с офис), просто го напиши.",
   "checkout.office": "Офис (име или адрес на офиса)",
   "checkout.address": "Адрес (улица, номер, етаж, апартамент)",
   "checkout.note": "Бележка (по желание)",

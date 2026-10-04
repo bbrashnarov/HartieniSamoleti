@@ -70,6 +70,8 @@
   "checkout.toOffice": "Courier office",
   "checkout.toAddress": "Address",
   "checkout.city": "City",
+  "checkout.cityPlaceholder": "Start typing, e.g. Plovdiv",
+  "checkout.cityHint": "Pick from the list of towns (names are in Bulgarian). If your place is missing (e.g. a village with an office), just type it.",
   "checkout.office": "Office (name or address of the office)",
   "checkout.address": "Address (street, number, floor, flat)",
   "checkout.note": "Note (optional)",
