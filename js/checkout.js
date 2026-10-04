@@ -163,9 +163,11 @@
     return o.name + (o.aps ? " (" + App.t("checkout.aps") + ")" : "") + (o.address ? " – " + String(o.address).trim() : "");
   }
 
-  function options(list) {
-    return list.map(function (v) { return '<option value="' + App.escapeHtml(v) + '"></option>'; }).join("");
-  }
+  // Вариантите за търсачките „Град“ и „Офис“ (js/combobox.js)
+  var cityOptions = [];
+  var officeOptions = [];
+  var cityBox = null;
+  var officeBox = null;
 
   function useEcontList() {
     return current("courier") === "Еконт" && current("deliveryTo") === "office" && econtOffices.length > 0;
@@ -182,19 +184,20 @@
       cities = (window.BG_CITIES || []).slice();
     }
     cities.sort(function (a, b) { return a.localeCompare(b, "bg"); });
-    document.getElementById("city-list").innerHTML = options(cities);
+    cityOptions = cities;
 
-    var place = document.getElementById("f-place");
     var hint = document.getElementById("place-hint");
+    // Стрелката на полето „Офис“ се показва само когато има списък за избор
+    var placeWrap = document.getElementById("f-place").parentNode;
+    if (placeWrap.classList.contains("combo")) placeWrap.classList.toggle("combo-free", !econt);
     if (econt) {
       var city = norm(document.getElementById("f-city").value);
       var inCity = city ? econtOffices.filter(function (o) { return norm(o.city) === city; }) : [];
-      document.getElementById("office-list").innerHTML = options(inCity.map(officeLabel));
-      place.setAttribute("list", "office-list");
+      officeOptions = inCity.map(officeLabel);
       hint.textContent = App.t(inCity.length ? "checkout.officeHintEcont" : "checkout.officeHintCityFirst");
       hint.hidden = false;
     } else {
-      place.removeAttribute("list");
+      officeOptions = [];
       hint.textContent = current("deliveryTo") === "office" ? App.t("checkout.officeHintFree") : "";
       hint.hidden = !hint.textContent;
     }
@@ -219,6 +222,8 @@
         updateLists();
       });
     });
+    cityBox = Combobox(document.getElementById("f-city"), function () { return cityOptions; });
+    officeBox = Combobox(document.getElementById("f-place"), function () { return officeOptions; });
     document.getElementById("f-city").addEventListener("input", updateLists);
     updateLists();
     loadEcontOffices();

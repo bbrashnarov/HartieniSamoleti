@@ -40,6 +40,7 @@ js/config.js      Настройки: ключ за Web3Forms, линкове к
 js/app.js         Общ код: езици, хедър/футър, зареждане на продукти, количка, карти на продукти
 js/home.js, catalog.js, product.js, cart.js, checkout.js   Код за отделните страници
 js/admin.js       Админ панелът
+js/combobox.js    Търсачка с падащ списък в стила на сайта (вместо <datalist>, който браузърът рисува черен)
 js/cities.js      Всички градове в България за полето „Град“ (ползва се за Спиди и за доставка до адрес)
 data/econt-offices.json   Офисите на Еконт за търсачката „Офис“; НЕ се пипа на ръка
 .github/workflows/econt-offices.yml   Всеки понеделник обновява data/econt-offices.json от публичния списък на Еконт

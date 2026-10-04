@@ -647,3 +647,40 @@ fieldset { border: 0; padding: 0; margin: 0; }
 .footer-social a { width: 42px; height: 42px; }
 
 .loading { text-align: center; padding: 40px; color: var(--ink-soft); }
+
+/* ---------- Търсачка с падащ списък (js/combobox.js) ---------- */
+.combo { position: relative; }
+.combo input {
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f1a17' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 20px;
+}
+.combo.combo-free input { background-image: none; padding-right: 14px; }
+.combo-list {
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 290px;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-hover);
+}
+.combo-list li {
+  padding: 11px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+.combo-list li + li { border-top: 1.5px dashed var(--kraft-dark); }
+.combo-list li strong { color: var(--mint-darker); font-weight: 800; }
+.combo-list li:hover,
+.combo-list li[aria-selected="true"] { background: #e3f2f0; }

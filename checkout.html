@@ -57,14 +57,12 @@
             </fieldset>
             <div class="field">
               <label for="f-city"><span data-i18n="checkout.city"></span> <span class="req">*</span></label>
-              <input id="f-city" name="city" list="city-list" autocomplete="off" required maxlength="80" data-i18n-placeholder="checkout.cityPlaceholder">
-              <datalist id="city-list"></datalist>
+              <input id="f-city" name="city" autocomplete="off" required maxlength="80" data-i18n-placeholder="checkout.cityPlaceholder">
               <small class="muted" data-i18n="checkout.cityHint"></small>
             </div>
             <div class="field">
               <label for="f-place"><span id="place-label" data-i18n="checkout.office"></span> <span class="req">*</span></label>
               <input id="f-place" name="place" required maxlength="250" autocomplete="off">
-              <datalist id="office-list"></datalist>
               <small class="muted" id="place-hint" hidden></small>
             </div>
             <div class="field">
@@ -94,6 +92,7 @@
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
   <script src="js/cities.js"></script>
+  <script src="js/combobox.js"></script>
   <script src="js/checkout.js"></script>
 </body>
 </html>
