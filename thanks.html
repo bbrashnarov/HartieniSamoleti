@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Благодарим | Хартиени Самолети</title>
+  <meta name="description" content="Хартиени Самолети: авторски текстилни торби, картички и книгоразделители с хумористични надписи. Тестов сайт.">
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="thanks" data-title="thanks.pageTitle">
+  <div id="site-header"></div>
+  <main>
+    <section class="section">
+      <div class="container thanks">
+        <img class="hero-logo" src="images/logo.jpg" alt="" width="220" height="220" style="width:200px;margin:0 auto 20px">
+        <h1><span class="watercolor title-wash" data-i18n="thanks.title"></span></h1>
+        <p data-i18n="thanks.text"></p>
+        <p id="order-no" hidden><strong data-i18n="thanks.number"></strong>: <span></span></p>
+        <p class="notice"><strong data-i18n="thanks.test"></strong></p>
+        <p class="notice error" id="not-sent" data-i18n="thanks.notSent" hidden></p>
+        <div class="trail" role="presentation"></div>
+        <a class="btn" href="index.html" data-i18n="thanks.back"></a>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var p = new URLSearchParams(location.search);
+        var no = p.get("order");
+        if (no) {
+          var el = document.getElementById("order-no");
+          el.hidden = false;
+          el.querySelector("span").textContent = no;
+        }
+        if (p.get("demo") === "1") document.getElementById("not-sent").hidden = false;
+      })();
+    </script>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

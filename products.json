@@ -1,0 +1,148 @@
+[
+  {
+    "id": "kot-takova",
+    "category": "bags",
+    "name": { "bg": "Торба „Кот' такова“", "en": "Tote bag “Kot' takova”" },
+    "description": {
+      "bg": "Памучна торба с три черни котки, които знаят как стоят нещата: „Понякога положението е… кот' такова“. За дните, в които няма какво повече да се каже.",
+      "en": "Cotton tote with three black cats who know how things are. The Bulgarian print is a pun: “Sometimes the situation is… cat-like that”. For the days when there is nothing more to say."
+    },
+    "price": 11,
+    "sale": false,
+    "images": ["images/products/kot-takova.jpg"]
+  },
+  {
+    "id": "misleno-sam-tuk",
+    "category": "bags",
+    "name": { "bg": "Торба „Мислено съм тук!“", "en": "Tote bag “Mentally, I'm here!”" },
+    "description": {
+      "bg": "Патето е на работа, но само мислено: халат, маска с краставички и чаша чай. Перфектна торба за офиса.",
+      "en": "The duck is at work, but only in spirit: bathrobe, cucumber face mask and a cup of tea. The perfect office tote."
+    },
+    "price": 10,
+    "sale": false,
+    "images": ["images/products/misleno-sam-tuk.jpg"]
+  },
+  {
+    "id": "plavashto-rabotno-vreme",
+    "category": "bags",
+    "name": { "bg": "Торба „Днес съм с плаващо работно време“", "en": "Tote bag “Floating working hours today”" },
+    "description": {
+      "bg": "Патенце със слънчеви очила на надуваем пояс. Голяма и здрава торба за плаж, басейн или просто за лятно настроение.",
+      "en": "A duck in sunglasses on a pool float. A big, sturdy tote for the beach, the pool or just a summer mood."
+    },
+    "price": 12,
+    "sale": true,
+    "oldPrice": 14,
+    "images": ["images/products/plavashto-rabotno-vreme.jpg", "images/products/plavashto-rabotno-vreme-2.jpg"]
+  },
+  {
+    "id": "kogato-mu-doyde-vremeto",
+    "category": "bags",
+    "name": { "bg": "Торба „Когато му дойде времето“", "en": "Tote bag “When the time comes”" },
+    "description": {
+      "bg": "Спокойна гъска с кафе сред полски цветя. Напомняне, че всичко ще стане, когато му дойде времето.",
+      "en": "A calm goose with a coffee among wild flowers. A reminder that everything happens when the time comes."
+    },
+    "price": 10,
+    "sale": false,
+    "images": ["images/products/kogato-mu-doyde-vremeto.jpg", "images/products/kogato-mu-doyde-vremeto-2.jpg"]
+  },
+  {
+    "id": "rabotya-po-vaprosa",
+    "category": "bags",
+    "name": { "bg": "Торба „Работя по въпроса“", "en": "Tote bag “Working on it”" },
+    "description": {
+      "bg": "Гъската работи по въпроса… със слънчеви очила и списък „to do: по-точно“. За всички, които отлагат с усмивка.",
+      "en": "The goose is working on it… in sunglasses, next to a to-do list. For everyone who procrastinates with a smile."
+    },
+    "price": 10,
+    "sale": false,
+    "images": ["images/products/rabotya-po-vaprosa.jpg"]
+  },
+  {
+    "id": "otivam-samo-za-hlyab",
+    "category": "bags",
+    "name": { "bg": "Торба „Отивам само за хляб!“", "en": "Tote bag “Just popping out for bread!”" },
+    "description": {
+      "bg": "Тръгнала за хляб, а количката пълна с цветя, вино и бормашина. Торба за пазар, която знае истината.",
+      "en": "She went out for bread and came back with flowers, wine and a power drill. A shopping tote that knows the truth."
+    },
+    "price": 11,
+    "sale": false,
+    "images": ["images/products/otivam-samo-za-hlyab.jpg", "images/products/otivam-samo-za-hlyab-2.jpg"]
+  },
+  {
+    "id": "lesno-e",
+    "category": "bags",
+    "name": { "bg": "Торба „Лесно е… само ако гледаш отстрани!“", "en": "Tote bag “It's easy… if you're watching!”" },
+    "description": {
+      "bg": "За фитнеса, йогата или пилатеса. Илюстрация на всеки, който е опитвал коремни преси.",
+      "en": "For the gym, yoga or pilates. An illustration of anyone who has ever tried to do crunches."
+    },
+    "price": 9,
+    "sale": false,
+    "images": ["images/products/lesno-e.jpg"]
+  },
+  {
+    "id": "zaet-sam-da-ne-barzam",
+    "category": "bags",
+    "name": { "bg": "Торба „Зает съм да не бързам“", "en": "Tote bag “Busy not rushing”" },
+    "description": {
+      "bg": "Акварелен залез над езеро, шезлонг и чаша кафе. Подарък за човек, който заслужава почивка.",
+      "en": "A watercolour sunset over a lake, a deck chair and a cup of coffee. A gift for someone who deserves a break."
+    },
+    "price": 12,
+    "sale": false,
+    "images": ["images/products/zaet-sam-da-ne-barzam.jpg"]
+  },
+  {
+    "id": "neka-da-e-lyato",
+    "category": "bags",
+    "name": { "bg": "Торба „Нека да е лято“", "en": "Tote bag “Let it be summer”" },
+    "description": {
+      "bg": "Големи тюркоазени букви и весело слънце. Лятото в чантата, през цялата година.",
+      "en": "Big teal letters and a happy sun. Summer in your bag, all year round."
+    },
+    "price": 9,
+    "sale": true,
+    "oldPrice": 11,
+    "images": ["images/products/neka-da-e-lyato.jpg"]
+  },
+  {
+    "id": "chestit-24-may",
+    "category": "cards",
+    "name": { "bg": "Картичка „Честит 24 май!“", "en": "Card “Happy 24 May!”" },
+    "description": {
+      "bg": "Сгъваема картичка с акварелни цветя за Деня на българската просвета и култура и на славянската писменост.",
+      "en": "A folded card with watercolour flowers for 24 May, the Bulgarian Day of Education, Culture and Slavic Literature."
+    },
+    "price": 2.5,
+    "sale": false,
+    "images": ["images/products/chestit-24-may.jpg"]
+  },
+  {
+    "id": "samo-oshte-edna-stranitsa",
+    "category": "bookmarks",
+    "name": { "bg": "Книгоразделител „Само още една страница…“", "en": "Bookmark “Just one more page…”" },
+    "description": {
+      "bg": "Любопитно коте надзърта в книгата. За всеки, който казва „само още една страница“ в два през нощта.",
+      "en": "A curious kitten peeks into the book. For everyone who says “just one more page” at 2 a.m."
+    },
+    "price": 2,
+    "sale": false,
+    "images": ["images/products/samo-oshte-edna-stranitsa.jpg"]
+  },
+  {
+    "id": "moeto-myasto-za-chetene",
+    "category": "bookmarks",
+    "name": { "bg": "Книгоразделител „Моето място за четене“", "en": "Bookmark “My reading spot”" },
+    "description": {
+      "bg": "Акварелно море, платноходка и чайка. Морето винаги е между страниците.",
+      "en": "Watercolour sea, a sailboat and a seagull. The sea is always between the pages."
+    },
+    "price": 1.5,
+    "sale": false,
+    "images": ["images/products/moeto-myasto-za-chetene.jpg"]
+  }
+]

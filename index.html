@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Хартиени Самолети</title>
+  <meta name="description" content="Хартиени Самолети: авторски текстилни торби, картички и книгоразделители с хумористични надписи. Тестов сайт.">
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home" data-title="home.title" data-products>
+  <div id="site-header"></div>
+  <main>
+    <section class="hero stars">
+      <div class="container hero-inner">
+        <div>
+          <h1><span class="watercolor title-wash" data-i18n="brand.name">Хартиени Самолети</span></h1>
+          <p data-i18n="brand.slogan"></p>
+          <a class="btn" href="catalog.html" data-i18n="home.hero.cta"></a>
+        </div>
+        <img class="hero-logo" src="images/logo.jpg" alt="Хартиени Самолети" width="300" height="300">
+      </div>
+    </section>
+
+    <div class="trail" role="presentation"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="watercolor title-wash" data-i18n="home.featured"></span></h2>
+          <a href="catalog.html" data-i18n="home.allProducts"></a>
+        </div>
+        <div class="grid" id="featured"><p class="loading" data-i18n="common.loading"></p></div>
+      </div>
+    </section>
+
+    <div class="trail" role="presentation"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2><span class="watercolor title-wash" data-i18n="home.categories"></span></h2></div>
+        <div class="cats" id="cats"></div>
+      </div>
+    </section>
+
+    <section class="section" id="sale-section" hidden>
+      <div class="container">
+        <div class="sale-banner stars">
+          <h2 data-i18n="home.sale.title"></h2>
+          <p data-i18n="home.sale.text"></p>
+          <div class="grid" id="sale-grid" style="margin-bottom:20px;text-align:left"></div>
+          <a class="btn" href="catalog.html?sale=1" data-i18n="home.sale.cta"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

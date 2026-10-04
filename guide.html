@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ръководство за качване на снимки | Хартиени Самолети</title>
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .guide { max-width: 760px; padding-top: 24px; padding-bottom: 60px; }
+    .guide h2 { margin-top: 1.2em; }
+    .guide ol li, .guide ul li { margin-bottom: 0.6em; }
+    .step { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 20px; margin: 16px 0; }
+    .step h2 { margin-top: 0; }
+    kbd { background: #fff; border: 2px solid var(--ink); border-radius: 6px; padding: 0 6px; font-family: inherit; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <header class="site-header" style="position:static">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="images/logo.jpg" alt="" width="48" height="48"><span>Хартиени Самолети</span></a>
+      <a class="btn admin-small" href="admin.html" style="min-height:42px;padding:8px 16px">Към админ панела</a>
+    </div>
+  </header>
+
+  <main class="container guide">
+    <h1><span class="watercolor title-wash">Как да качите нов продукт</span></h1>
+    <p>Това ръководство е за човека, който добавя снимки и продукти в магазина. Не са нужни технически знания. Работи и от телефон.</p>
+
+    <div class="trail" role="presentation"></div>
+
+    <div class="step">
+      <h2>1. Вход (само първия път)</h2>
+      <ol>
+        <li>Отворете админ панела: към адреса на сайта добавете <strong>admin.html</strong>. Например: <em>bbrashnarov.github.io/-/admin.html</em></li>
+        <li>Панелът ще поиска <strong>токен</strong>. Токенът е като парола, с която сайтът може да записва нови продукти. Ще го получите от собственика на магазина (или вижте „Как се създава токен“ най-долу).</li>
+        <li>Поставете токена в полето и натиснете <kbd>Влез</kbd>.</li>
+        <li>Готово. Браузърът го запомня и следващия път влизате направо.</li>
+      </ol>
+      <p class="notice">Не давайте токена на други хора и не го публикувайте никъде. Ако сте на чужд компютър, след работа натиснете „Изход (забрави токена)“.</p>
+    </div>
+
+    <div class="step">
+      <h2>2. Добавяне на нов продукт</h2>
+      <ol>
+        <li>Натиснете голямото поле „Натиснете тук, за да изберете снимка“ и изберете снимка от телефона или компютъра. Може да изберете и няколко снимки. Първата е главната, тя се показва в каталога.</li>
+        <li>Изберете <strong>категория</strong>: торба, картичка, книгоразделител, тефтер или подаръчен комплект.</li>
+        <li>Напишете <strong>името</strong> на български и на английски. Обикновено името е надписът върху продукта.</li>
+        <li>Напишете кратко <strong>описание</strong> на двата езика (2-3 изречения).</li>
+        <li>Напишете <strong>цената</strong> в евро, например <em>10,50</em>.</li>
+        <li>Ако продуктът е в намаление, сложете отметка на „Намален“ и по желание напишете старата цена.</li>
+        <li>Ако искате продуктът да е на началната страница, сложете отметка „Покажи на началната страница“.</li>
+        <li>Натиснете <kbd>Запиши продукта</kbd> и изчакайте. Не затваряйте страницата, докато не видите зелено съобщение.</li>
+      </ol>
+      <p class="notice ok">Когато видите „Качено успешно“, всичко е наред. Продуктът ще се появи на сайта до 1-2 минути. Ако не го виждате, презаредете страницата на сайта.</p>
+      <p>Не се притеснявайте за размера на снимката: панелът сам я смалява, преди да я качи.</p>
+    </div>
+
+    <div class="step">
+      <h2>3. Промяна или изтриване</h2>
+      <ul>
+        <li>Слезте до „Всички продукти“. До всеки продукт има два бутона.</li>
+        <li><kbd>Редактирай</kbd> зарежда продукта горе във формата. Сменете каквото трябва и натиснете „Запиши промените“. Със знака ✕ махате снимка, с „Направи главна“ сменяте главната снимка.</li>
+        <li><kbd>Изтрий</kbd> премахва продукта от сайта. Панелът ще попита дали сте сигурни.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h2>Ако нещо не стане</h2>
+      <ul>
+        <li><strong>„Токенът не е валиден или е изтекъл“</strong>: токенът има срок. Помолете собственика за нов, натиснете „Изход“ и влезте с новия.</li>
+        <li><strong>„Няма връзка с интернет“</strong>: проверете интернета и натиснете бутона отново.</li>
+        <li><strong>„Файлът беше променен от друго място“</strong>: някой друг е добавял продукт в същия момент. Натиснете „Обнови списъка“ и опитайте пак.</li>
+        <li><strong>Продуктът не се вижда на сайта</strong>: изчакайте 2 минути и презаредете страницата.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h2>Как се създава токен (за собственика)</h2>
+      <ol>
+        <li>Влезте в GitHub и отворете <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>.</li>
+        <li><strong>Token name</strong>: например „Админ панел магазин“.</li>
+        <li><strong>Expiration</strong>: изберете срок, например 90 дни. След това ще трябва нов токен.</li>
+        <li><strong>Repository access</strong>: изберете „Only select repositories“ и посочете само хранилището на магазина.</li>
+        <li><strong>Permissions</strong> → „Repository permissions“ → <strong>Contents</strong> → изберете <strong>Read and write</strong>. Нищо друго не пипайте.</li>
+        <li>Натиснете <strong>Generate token</strong> най-долу и копирайте токена (започва с <em>github_pat_</em>). GitHub го показва само веднъж.</li>
+      </ol>
+    </div>
+  </main>
+</body>
+</html>

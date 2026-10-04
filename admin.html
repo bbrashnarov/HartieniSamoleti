@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Админ панел | Хартиени Самолети</title>
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="site-header" style="position:static">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="images/logo.jpg" alt="" width="48" height="48"><span>Админ панел</span></a>
+      <a class="btn btn-light admin-small" href="guide.html" target="_blank" rel="noopener">Помощ</a>
+    </div>
+  </header>
+
+  <main class="container admin">
+    <!-- Съобщения: успех или грешка -->
+    <div id="msg" class="notice admin-msg" role="status" aria-live="polite" hidden></div>
+
+    <!-- 1. Вход -->
+    <section id="login" class="panel" hidden>
+      <h1>Вход</h1>
+      <p>Поставете вашия <strong>GitHub токен</strong>. Въвежда се само веднъж и се пази в този браузър.
+        Не знаете какво е това? Отворете <a href="guide.html" target="_blank" rel="noopener">ръководството</a>.</p>
+      <form id="login-form" class="form">
+        <div class="field">
+          <label for="token">Токен (започва с github_pat_)</label>
+          <input id="token" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_...">
+        </div>
+        <details>
+          <summary>Разширени настройки (обикновено не се пипат)</summary>
+          <div class="form" style="margin-top:12px">
+            <div class="field"><label for="owner">Собственик в GitHub</label><input id="owner" spellcheck="false"></div>
+            <div class="field"><label for="repo">Хранилище</label><input id="repo" spellcheck="false"></div>
+            <div class="field"><label for="branch">Клон</label><input id="branch" spellcheck="false"></div>
+          </div>
+        </details>
+        <button class="btn btn-block admin-big" type="submit">Влез</button>
+      </form>
+    </section>
+
+    <!-- 2. Работна част -->
+    <div id="app" hidden>
+      <div class="admin-bar">
+        <span>Влезли сте в <strong id="repo-name"></strong></span>
+        <button type="button" class="link-btn" id="logout">Изход (забрави токена)</button>
+      </div>
+
+      <section class="panel" id="editor">
+        <h1 id="form-title">Нов продукт</h1>
+        <form id="product-form" class="form" novalidate>
+          <div class="field">
+            <span class="field-label">Снимки <span class="req">*</span></span>
+            <label class="dropzone" id="dropzone" tabindex="0">
+              <input type="file" id="files" accept="image/*" multiple class="visually-hidden">
+              <span class="dz-icon" aria-hidden="true">📷</span>
+              <strong>Натиснете тук, за да изберете снимка</strong>
+              <span class="muted">или я довлачете с мишката. Може и няколко. Първата е главната.</span>
+            </label>
+            <div class="previews" id="previews"></div>
+          </div>
+
+          <div class="field">
+            <label for="category">Категория <span class="req">*</span></label>
+            <select id="category" required>
+              <option value="bags">Текстилни торби</option>
+              <option value="cards">Картички</option>
+              <option value="bookmarks">Книгоразделители</option>
+              <option value="notebooks">Тефтери</option>
+              <option value="giftsets">Подаръчни комплекти</option>
+            </select>
+          </div>
+
+          <div class="two-col">
+            <div class="field">
+              <label for="name-bg">Име на български <span class="req">*</span></label>
+              <input id="name-bg" required maxlength="120" placeholder="Торба „Отивам само за хляб!“">
+            </div>
+            <div class="field">
+              <label for="name-en">Име на английски <span class="req">*</span></label>
+              <input id="name-en" required maxlength="120" placeholder="Tote bag “Just popping out for bread!”">
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="field">
+              <label for="desc-bg">Описание на български <span class="req">*</span></label>
+              <textarea id="desc-bg" required maxlength="1500"></textarea>
+            </div>
+            <div class="field">
+              <label for="desc-en">Описание на английски <span class="req">*</span></label>
+              <textarea id="desc-en" required maxlength="1500"></textarea>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="field">
+              <label for="price">Цена в евро <span class="req">*</span></label>
+              <input id="price" inputmode="decimal" required placeholder="10,50">
+            </div>
+            <div class="field">
+              <label for="old-price">Стара цена в евро (по желание, при намаление)</label>
+              <input id="old-price" inputmode="decimal" placeholder="12,00">
+            </div>
+          </div>
+
+          <label class="choice"><input type="checkbox" id="sale"> Намален</label>
+          <label class="choice"><input type="checkbox" id="featured"> Покажи на началната страница</label>
+
+          <button class="btn btn-block admin-big" type="submit" id="save-btn">Запиши продукта</button>
+          <button class="btn btn-light btn-block" type="button" id="cancel-btn" hidden>Откажи редакцията</button>
+        </form>
+      </section>
+
+      <section class="panel" style="margin-top:20px">
+        <div class="section-head">
+          <h2 style="margin:0">Всички продукти (<span id="count">0</span>)</h2>
+          <button type="button" class="btn btn-light admin-small" id="reload">Обнови списъка</button>
+        </div>
+        <div id="list" class="admin-list"><p class="loading">Зареждане…</p></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

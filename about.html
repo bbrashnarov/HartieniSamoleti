@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>За нас и Контакти | Хартиени Самолети</title>
+  <meta name="description" content="Хартиени Самолети: авторски текстилни торби, картички и книгоразделители с хумористични надписи. Тестов сайт.">
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about" data-title="about.pageTitle">
+  <div id="site-header"></div>
+  <main>
+    <section class="section">
+      <div class="container about">
+        <img src="images/logo.jpg" alt="Хартиени Самолети" width="320" height="320">
+        <div>
+          <h1><span class="watercolor title-wash" data-i18n="about.title"></span></h1>
+          <p data-i18n="about.p1"></p>
+          <p data-i18n="about.p2"></p>
+        </div>
+      </div>
+    </section>
+    <div class="trail" role="presentation"></div>
+    <section class="section">
+      <div class="container">
+        <h2><span class="watercolor title-wash" data-i18n="about.contacts"></span></h2>
+        <p data-i18n="about.follow"></p>
+        <div class="socials" id="socials"></div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var c = window.SHOP_CONFIG, i = App.icons;
+        document.getElementById("socials").innerHTML =
+          '<a class="btn" href="' + App.escapeHtml(c.instagram) + '" target="_blank" rel="noopener">' + i.instagram + ' Instagram</a>' +
+          '<a class="btn btn-light" href="' + App.escapeHtml(c.facebook) + '" target="_blank" rel="noopener">' + i.facebook + ' Facebook</a>';
+      });
+    </script>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

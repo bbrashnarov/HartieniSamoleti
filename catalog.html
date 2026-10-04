@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог | Хартиени Самолети</title>
+  <meta name="description" content="Хартиени Самолети: авторски текстилни торби, картички и книгоразделители с хумористични надписи. Тестов сайт.">
+  <meta name="theme-color" content="#e6d9c8">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog" data-title="catalog.pageTitle" data-products>
+  <div id="site-header"></div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1><span class="watercolor title-wash" data-i18n="catalog.title"></span></h1>
+        <div class="filters">
+          <label class="search">
+            <span class="visually-hidden" data-i18n="catalog.search"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="21" cy="21" r="12"/><path d="M30 30l9 9"/></svg>
+            <input type="search" id="search" data-i18n-placeholder="catalog.search" autocomplete="off">
+          </label>
+          <div class="chips" id="chips" role="group"></div>
+          <div class="muted" id="found" aria-live="polite"></div>
+        </div>
+        <div class="grid" id="grid"><p class="loading" data-i18n="common.loading"></p></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>
