@@ -71,7 +71,10 @@
             </div>
 
             <h2 data-i18n="checkout.payment"></h2>
-            <label class="choice"><input type="radio" name="payment" value="cod" checked> <span data-i18n="checkout.cod"></span></label>
+            <div class="payment-choices">
+              <label class="choice"><input type="radio" name="payment" value="cod" checked> <span data-i18n="checkout.cod"></span></label>
+              <label class="choice"><input type="radio" name="payment" value="card"> <span><span data-i18n="checkout.card"></span> <span class="card-badges" aria-hidden="true"><span>VISA</span><span>MC</span></span></span></label>
+            </div>
 
             <!-- Капан за спам ботове: хората не виждат това поле -->
             <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
@@ -79,6 +82,18 @@
             <div id="form-msg" class="notice error" role="alert" hidden></div>
             <button class="btn btn-block" type="submit" id="submit-btn" data-i18n="checkout.submit"></button>
           </form>
+
+          <!-- Тестово плащане с карта: не иска и не пази данни за карта -->
+          <dialog class="pay-dialog" id="pay-dialog" aria-labelledby="pay-title">
+            <form method="dialog" class="pay-box">
+              <div class="pay-lock" aria-hidden="true">🔒</div>
+              <h2 id="pay-title" data-i18n="pay.title"></h2>
+              <p class="pay-amount"><span data-i18n="pay.amount"></span> <strong id="pay-total"></strong></p>
+              <p class="notice" data-i18n="pay.note"></p>
+              <button class="btn btn-block" value="pay" id="pay-confirm" data-i18n="pay.confirm"></button>
+              <button class="btn btn-light btn-block" value="cancel" data-i18n="pay.cancel"></button>
+            </form>
+          </dialog>
 
           <aside class="panel">
             <h2 data-i18n="checkout.summary"></h2>

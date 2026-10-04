@@ -23,6 +23,7 @@
         <p data-i18n="thanks.text"></p>
         <p id="order-no" hidden><strong data-i18n="thanks.number"></strong>: <span></span></p>
         <p class="notice"><strong data-i18n="thanks.test"></strong></p>
+        <p class="notice ok" id="card-test" data-i18n="thanks.cardTest" hidden></p>
         <p class="notice error" id="not-sent" data-i18n="thanks.notSent" hidden></p>
         <div class="trail" role="presentation"></div>
         <a class="btn" href="index.html" data-i18n="thanks.back"></a>
@@ -37,6 +38,7 @@
           el.hidden = false;
           el.querySelector("span").textContent = no;
         }
+        if (p.get("paid") === "card") document.getElementById("card-test").hidden = false;
         if (p.get("demo") === "1") document.getElementById("not-sent").hidden = false;
       })();
     </script>

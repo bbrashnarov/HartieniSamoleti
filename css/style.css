@@ -684,3 +684,26 @@ fieldset { border: 0; padding: 0; margin: 0; }
 .combo-list li strong { color: var(--mint-darker); font-weight: 800; }
 .combo-list li:hover,
 .combo-list li[aria-selected="true"] { background: #e3f2f0; }
+
+/* ---------- Плащане с карта (тестово) ---------- */
+.payment-choices { display: grid; gap: 10px; }
+.card-badges { display: inline-flex; gap: 4px; margin-left: 6px; vertical-align: middle; }
+.card-badges span {
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 0.04em;
+  padding: 2px 6px; border: 1.5px solid var(--ink); border-radius: 5px; background: #fff;
+}
+.pay-dialog {
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0;
+  width: min(420px, calc(100% - 32px));
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-hover);
+}
+.pay-dialog::backdrop { background: rgba(31, 26, 23, 0.45); }
+.pay-box { display: grid; gap: 12px; padding: 24px 20px; text-align: center; }
+.pay-box h2 { margin: 0; }
+.pay-lock { font-size: 2rem; }
+.pay-amount { margin: 0; font-size: 1.1rem; }
+.pay-amount strong { font-size: 1.5rem; color: var(--mint-darker); display: block; }

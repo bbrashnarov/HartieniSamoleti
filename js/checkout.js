@@ -54,7 +54,7 @@
       rows.join("\n"),
       "",
       "ОБЩО: " + eur(total) + " (без доставката)",
-      "Плащане: наложен платеж",
+      "Плащане: " + (data.payment === "card" ? "КАРТА (ТЕСТОВО ПЛАЩАНЕ, НЕ СА ВЗЕТИ ПАРИ)" : "наложен платеж"),
       "",
       "КЛИЕНТ:",
       "Име: " + data.name,
@@ -103,11 +103,29 @@
     var lines = App.cartLines();
     if (!lines.length) return showError(App.t("checkout.emptyCart"));
 
+    if (data.payment === "card") return askCardPayment(data, lines);
+    sendOrder(data, lines);
+  }
+
+  // Тестово плащане с карта: прозорец с потвърждение, без данни за карта.
+  function askCardPayment(data, lines) {
+    var dlg = document.getElementById("pay-dialog");
+    document.getElementById("pay-total").textContent = App.formatPrice(App.cartTotal());
+    if (typeof dlg.showModal !== "function") return sendOrder(data, lines); // много стар браузър
+    dlg.returnValue = "";
+    dlg.onclose = function () {
+      if (dlg.returnValue === "pay") sendOrder(data, lines);
+    };
+    dlg.showModal();
+  }
+
+  function sendOrder(data, lines) {
     var no = orderNumber();
     var key = (window.SHOP_CONFIG && window.SHOP_CONFIG.web3formsKey) || "";
     var done = function (demo) {
       App.clearCart();
-      location.href = "thanks.html?order=" + encodeURIComponent(no) + (demo ? "&demo=1" : "");
+      location.href = "thanks.html?order=" + encodeURIComponent(no) + (demo ? "&demo=1" : "") +
+        (data.payment === "card" ? "&paid=card" : "");
     };
 
     // Ако имейл услугата още не е настроена, поръчката минава в демо режим.
