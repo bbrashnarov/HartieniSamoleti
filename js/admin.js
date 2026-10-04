@@ -66,7 +66,7 @@
       return { owner: owner, repo: repo, branch: "" };
     }
     // При отваряне от компютъра (не от GitHub Pages)
-    return { owner: "bbrashnarov", repo: "-", branch: "" };
+    return { owner: "bbrashnarov", repo: "HartieniSamoleti", branch: "" };
   }
 
   function readCfg() {
@@ -495,7 +495,7 @@
     cfg = {
       token: token,
       owner: $("owner").value.trim() || "bbrashnarov",
-      repo: $("repo").value.trim() || "-",
+      repo: $("repo").value.trim() || "HartieniSamoleti",
       branch: $("branch").value.trim()
     };
     say("Проверявам токена…");
