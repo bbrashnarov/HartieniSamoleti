@@ -160,7 +160,7 @@
   }
 
   function officeLabel(o) {
-    return o.name + (o.aps ? " (" + App.t("checkout.aps") + ")" : "") + (o.address ? " – " + o.address : "");
+    return o.name + (o.aps ? " (" + App.t("checkout.aps") + ")" : "") + (o.address ? " – " + String(o.address).trim() : "");
   }
 
   function options(list) {

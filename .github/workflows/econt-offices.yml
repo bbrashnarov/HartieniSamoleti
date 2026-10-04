@@ -36,7 +36,7 @@ jobs:
                     code: .code,
                     name: .name,
                     city: .address.city.name,
-                    address: (.address.fullAddress // .address.street // ""),
+                    address: ((.address.fullAddress // .address.street // "") | gsub("^\\s+|\\s+$"; "")),
                     aps: (.isAPS // false)
                   }
                 | select(.city != null and .city != "")]
